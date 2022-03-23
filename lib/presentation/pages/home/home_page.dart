@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:localstorage/localstorage.dart';
 import 'package:responsive_framework/responsive_row_column.dart';
 import 'package:responsive_framework/responsive_value.dart';
 import 'package:responsive_framework/responsive_wrapper.dart';
 import 'package:tic_tac_toe/infrastructure/models/courses.dart';
-
+import '../local/local_storage.dart';
 import 'widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,15 +26,34 @@ class HomePage extends StatelessWidget {
           ),
         ),
         actions: [
-          const ResponsiveVisibility(
+          ResponsiveVisibility(
             visible: false,
-            visibleWhen: [Condition.largerThan(name: TABLET)],
-            child: MenuTextButton(text: 'Courses'),
+            visibleWhen: const [Condition.largerThan(name: TABLET)],
+            child: MenuTextButton(
+              text: 'Courses',
+              onTap: () {},
+            ),
           ),
-          const ResponsiveVisibility(
+          ResponsiveVisibility(
             visible: false,
-            visibleWhen: [Condition.largerThan(name: TABLET)],
-            child: MenuTextButton(text: 'About'),
+            visibleWhen: const [Condition.largerThan(name: TABLET)],
+            child: MenuTextButton(
+              text: 'About',
+              onTap: () {},
+            ),
+          ),
+          ResponsiveVisibility(
+            visible: false,
+            visibleWhen: const [Condition.largerThan(name: TABLET)],
+            child: MenuTextButton(
+              text: 'Local',
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const LocalStoragePage()),
+                );
+              },
+            ),
           ),
           IconButton(
             icon: const Icon(Icons.mark_email_unread_rounded),

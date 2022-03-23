@@ -20,7 +20,8 @@ class AppBarTitle extends StatelessWidget {
 
 class MenuTextButton extends StatelessWidget {
   final String text;
-  const MenuTextButton({Key? key, required this.text}) : super(key: key);
+  final VoidCallback onTap;
+  const MenuTextButton({Key? key, required this.text, required this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class MenuTextButton extends StatelessWidget {
         primary: Colors.white,
         textStyle: const TextStyle(fontWeight: FontWeight.w600),
       ),
-      onPressed: () {},
+      onPressed: onTap,
       child: Text(text),
     );
   }
