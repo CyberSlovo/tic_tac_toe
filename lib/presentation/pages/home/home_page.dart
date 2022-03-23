@@ -42,18 +42,14 @@ class HomePage extends StatelessWidget {
               onTap: () {},
             ),
           ),
-          ResponsiveVisibility(
-            visible: false,
-            visibleWhen: const [Condition.largerThan(name: TABLET)],
-            child: MenuTextButton(
-              text: 'Local',
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const LocalStoragePage()),
-                );
-              },
-            ),
+          MenuTextButton(
+            text: 'Local',
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LocalStoragePage()),
+              );
+            },
           ),
           IconButton(
             icon: const Icon(Icons.mark_email_unread_rounded),
